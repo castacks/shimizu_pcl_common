@@ -1,0 +1,8 @@
+Data/
+data/
+Build/
+build/
+*.pyc
+*.png
+*.jpg
+.vscode/
