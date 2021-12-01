@@ -58,15 +58,15 @@ void read_point_cloud_xyz_as_eigen_matrix(
     convert_pcl_2_eigen_matrix(pCloud, mat);
 }
 
-template < typename PCL_PC_T >
+template < typename PCL_Ptr_T >
 void write_point_cloud( 
     const std::string& fn, 
-    const PCL_PC_T& cloud, 
+    const PCL_Ptr_T& cloud, 
     bool flagBinary=true ) {
 
     pcl::PLYWriter writer;
     // std::cout << "Saving the filtered point cloud. \n";
-    writer.write(fn, cloud, flagBinary, false);
+    writer.write(fn, *cloud, flagBinary, false);
 }
 
 } // namespace shimizu_pcl_common.

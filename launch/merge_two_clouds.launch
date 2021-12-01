@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cloud_0"    default="$(find test_reconstruct_surface)/output/assembled.ply" />
+    <arg name="cloud_1"    default="$(find test_reconstruct_surface)/output/density_map_Extracted.ply" />
+    <arg name="out_fn"     default="$(find test_reconstruct_surface)/output/points_for_surf_recon.ply" />
+    <arg name="point_type" default="xyz" />
+    <!-- <arg name="point_type" default="xyz_rbg" /> -->
+    <!-- <arg name="point_type" default="xyz_normal" /> -->
+    <!-- <arg name="point_type" default="xyz_rgb_normal" /> -->
+
+    <node pkg="shimizu_pcl_common" 
+          type="merge_two_clouds" 
+          name="merge_two_clouds_0" 
+          output="screen" required="true" >
+          <!-- launch-prefix="gdb -ex run - -args" > -->
+        <param name="cloud_0"    value="$(arg cloud_0)" type="str" />
+        <param name="cloud_1"    value="$(arg cloud_1)" type="str" />
+        <param name="out_fn"     value="$(arg out_fn)" type="str" />
+        <param name="point_type" value="$(arg point_type)" type="str" />
+        
+    </node>
+</launch>
